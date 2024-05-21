@@ -41,7 +41,7 @@
     padding: 5px;
     border: 1px solid var(--azul);
     border-radius: 3px;
-    
+       
 
     transition: color .5s background-color .5s;
 }

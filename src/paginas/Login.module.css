@@ -1,0 +1,54 @@
+body{
+    background-image: url('/src/assets/img/fundo-login.png');
+    background-size: cover; /* Ajusta a imagem para cobrir toda a área */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+}
+.container{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cinza-claro);
+    padding: 30px;
+    border-radius: 10px;
+}
+.titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    font-size: 30px;
+}
+
+
+.label{
+    font-size: 16px;
+    font-family: 'Poppins';
+    /* color: var(--azul); */
+    font-weight: 400;
+}
+
+.input {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 6px;
+    border-color: 1px var(--azul); 
+      
+}
+
+.botao{
+    background-color: var(--azul);
+    color: var(--cinza-claro);
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Poppins';
+    font-size: 16px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
