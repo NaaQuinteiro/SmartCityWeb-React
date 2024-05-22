@@ -4,6 +4,7 @@
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Evita que a imagem se repita */
 }
+
 .container{
     display: flex;
     height: 100vh;
@@ -11,13 +12,15 @@
     align-items: center;
 }
 
+
 .formulario{
     display: flex;
     flex-direction: column;
     background-color: var(--cinza-claro);
-    padding: 30px;
-    border-radius: 20px;
+    padding: 45px;
+    border-radius: 25px;
 }
+
 .titulo{
     display: flex;
     justify-content: center;
@@ -39,13 +42,14 @@
     padding: 6px;
     border-radius: 6px;
     border: 1px solid var(--cinza-claro);
-    width: 250px;  
+    width: 300px;  
 }
 
 .input:focus{
     border: 1px solid var(--cinza-azulado);
     outline: none; /* Remove a borda padrão de foco */
 }
+
 
 .botao{
     background: linear-gradient(135deg, rgba(67,97,238,1) 0%, rgba(9,9,121,1) 100%);
@@ -55,8 +59,7 @@
     border: none;
     font-family: 'Poppins';
     font-size: 16px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;    
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .link{
