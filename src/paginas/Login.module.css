@@ -68,3 +68,11 @@
     text-decoration: none;
     color: var(--azul);
 }
+.messageErro{
+    display: flex;
+    justify-content: center;
+    font-size: .9rem;
+    font-weight: 200px;
+    color: rgb(241, 61, 106);
+    
+}
