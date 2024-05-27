@@ -1,15 +1,12 @@
 import './global.css'
-import { Inicial } from './paginas/Inicial'
-import { Login } from './paginas/Login'
-import { Cadastro } from './paginas/Cadastro'
-import { CadastroSensores } from './paginas/CadastroSensores'
-import { ListaSensores} from './paginas/ListaSensores'
+import { BrowserRouter } from 'react-router-dom'
+import { Rotas } from './rotas/Rotas'
 
 export function App() {
   return (
-    <>
-     <ListaSensores/>
-    </>
+    <BrowserRouter>
+      <Rotas/>
+    </BrowserRouter>
   )
 }
 

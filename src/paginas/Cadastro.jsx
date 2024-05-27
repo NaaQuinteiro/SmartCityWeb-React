@@ -33,6 +33,7 @@ export function Cadastro(){
     const[email, setEmail] = useState('')
     const[username, setUsername] = useState('')
     const[password, setPassword] = useState('')
+    
 
     function obterDadosFormulario(data){
         console.log(data);        

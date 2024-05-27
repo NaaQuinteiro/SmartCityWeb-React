@@ -1,46 +1,101 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-color: var(--cinza-escuro);
+    background-color: var(--cinza-claro);
 }
 
-.formulario{
+.formulario {
     display: flex;
     flex-direction: column;
-    background-color: var(--cinza-claro);
+    background-color: var(--cinza-azulado);
     padding: 30px;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
 }
 
-.campo {
-    margin-bottom: 10px;
-    padding: 5px;
-    border-radius: 6px;
-    border-color: var(--roxo);   
+.titulo {
+    color: var(--roxo);
+    font-size: 2rem;
+    margin-bottom: 25px;
+    text-align: center;
 }
 
-.botao{
-    background-color: var(--roxo);
-    color: var(--cinza-claro);
-    padding: 10px;
-    border-radius: 8px;
-
-}
-
-.messageErro{
+.containerLinha {
     display: flex;
-    justify-content: center;
-    font-size: .9rem;
-    font-weight: 200px;
-    color: rgb(241, 61, 106);
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.containerCampo {
+    margin-bottom: 15px;
+    flex: 0 1 48%;
     
 }
 
-.titulo{
-    color:var(--roxo);
-    font-size: 2rem;
-    margin-bottom: 25px;
+.campo {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid var(--roxo);
+    border-radius: 6px;
+    background-color: var(--cinza-claro);
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.campo:focus {
+    border-color: var(--roxo-escuro);
+    background-color: var(--branco);
+}
+
+.checkbox {
+    margin-top: 5px;
+}
+
+.containerButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.botao { 
+    background-color: var(--azul);
+    width: 100px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--cinza-claro);
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.botao:hover {
+    background-color: rgb(241, 61, 106);
+    transform: scale(1.05);
+}
+
+.botao:active {
+    background-color: rgb(241, 61, 106);
+    transform: scale(1);
+}
+
+.messageErro {
+    font-size: 0.9rem;
+    color: rgb(241, 61, 106);
+    margin-top: -10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+label {
+    font-size: 1rem;
+    color: var(--roxo);
+    margin-bottom: 5px;
 }

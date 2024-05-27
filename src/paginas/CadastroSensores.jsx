@@ -73,126 +73,151 @@ export function CadastroSensores() {
     return (
         <div className={estilos.container}>
 
-            <p className={estilos.titulo}>Cadastro de Sensores</p>
-
             <form
                 className={estilos.formulario}
                 onSubmit={handleSubmit(obterDadosFormulario)}
             >
-                
-                {errors.tipo && (
+                <p className={estilos.titulo}>Cadastro de Sensores</p>
+            
+                <div className={estilos.containerLinha}>
+                    <div className={estilos.containerCampo}>
+                    {errors.tipo && (
                     <p className={estilos.messageErro}>{errors.tipo.message}</p>
-                )}
-                <label>Tipo</label>
-                <select 
-                    {...register('tipo')} 
-                    className={estilos.campo}
-                    value={tipo}
-                    onChange={e => setTipo(e.target.value)}
-                >
-                    <option value="">Selecione...</option>
-                    {TIPO_SENSOR_CHOICES.map((tipo, i) => (
-                        <option key={i} value={tipo}>
-                            {tipo}
-                        </option>
-                    ))}
-                </select>
+                    )}
+                    <label>Tipo</label>
+                        <select 
+                            {...register('tipo')} 
+                            className={estilos.campo}
+                            value={tipo}
+                            onChange={e => setTipo(e.target.value)}
+                        >
+                            <option value="">Selecione...</option>
+                            {TIPO_SENSOR_CHOICES.map((tipo, i) => (
+                                <option key={i} value={tipo}>
+                                    {tipo}
+                                </option>
+                            ))}
+                        </select>
+                    </div>                
+             
+    
+                    <div className={estilos.containerCampo}>
+                    {errors.mac_address && (
+                        <p className={estilos.messageErro}>{errors.mac_address.message}</p>
+                    )}
+                    <label>Mac Address</label>
+                        <input
+                            {...register('mac_address')}
+                            className={estilos.campo}
+                            placeholder="ex: 00:1B:44:11:3A:B7"
+                            value={mac_address}
+                            onChange={e => setMac_address(e.target.value)}
+                        />
+                    </div>
+                </div>
+                
+                <div className={estilos.containerLinha}>
+                    <div className={estilos.containerCampo}>
+                        {errors.latitude && (
+                            <p className={estilos.messageErro}>{errors.latitude.message}</p>
+                        )}  
+                        <label>Latitude</label>
+                            <input
+                                {...register('latitude')}
+                                className={estilos.campo}
+                                placeholder="ex: 45.123456"
+                                value={latitude}
+                                onChange={e => setLatitude(e.target.value)}
+                            />
+                    </div>
+
+            
+                    <div className={estilos.containerCampo}>
+                        {errors.longitude && (
+                        <p className={estilos.messageErro}>{errors.longitude.message}</p>
+                        )}
+                        <label>Longitude</label>
+                            <input
+                                {...register('longitude')}
+                                className={estilos.campo}
+                                placeholder="ex: -123.456789"
+                                value={longitude}
+                                onChange={e=> setLongitude(e.target.value)}
+                            />
+                    </div>
+
+                </div>
+                
                 
 
-                {errors.mac_address && (
-                    <p className={estilos.messageErro}>{errors.mac_address.message}</p>
-                )}
-                <label>Mac Address</label>
-                <input
-                    {...register('mac_address')}
-                    className={estilos.campo}
-                    placeholder="ex: 00:1B:44:11:3A:B7"
-                    value={mac_address}
-                    onChange={e => setMac_address(e.target.value)}
-                />
+                <div className={estilos.containerLinha}>
+                    <div className={estilos.containerCampo}>
+                        {errors.localizacao && (
+                            <p className={estilos.messageErro}>{errors.localizacao.message}</p>
+                        )}
+                        <label>Localização</label>
+                            <input
+                                {...register('localizacao')}
+                                className={estilos.campo}
+                                placeholder="ex: Entrada Refeitório"
+                                value={localizacao}
+                                onChange={e=> setLocalizacao(e.target.value)}
+                            />
+                    </div>
+
+                    <div className={estilos.containerCampo}>
+                        {errors.responsavel && (
+                        <p className={estilos.messageErro}>{errors.responsavel.message}</p>
+                        )}
+                        <label>Responsável</label>
+                            <input
+                                {...register('responsavel')}
+                                className={estilos.campo}
+                                placeholder="ex: Ayrton Senna"
+                                value={responsavel}
+                                onChange={e=> setResponsavel(e.target.value)}
+                            />
+                    </div>
+
+                </div>
 
 
-                {errors.latitude && (
-                    <p className={estilos.messageErro}>{errors.latitude.message}</p>
-                )}  
-                <label>Latitude</label>
-                <input
-                    {...register('latitude')}
-                    className={estilos.campo}
-                    placeholder="ex: 45.123456"
-                    value={latitude}
-                    onChange={e => setLatitude(e.target.value)}
-                />
-                
-
-                {errors.longitude && (
-                    <p className={estilos.messageErro}>{errors.longitude.message}</p>
-                )}
-                <label>Longitude</label>
-                <input
-                    {...register('longitude')}
-                    className={estilos.campo}
-                    placeholder="ex: -123.456789"
-                    value={longitude}
-                    onChange={e=> setLongitude(e.target.value)}
-                />
-
-
-                {errors.localizacao && (
-                    <p className={estilos.messageErro}>{errors.localizacao.message}</p>
-                )}
-                <label>Localização</label>
-                <input
-                    {...register('localizacao')}
-                    className={estilos.campo}
-                    placeholder="ex: Entrada Refeitório"
-                    value={localizacao}
-                    onChange={e=> setLocalizacao(e.target.value)}
-                />
-
-                {errors.responsavel && (
-                    <p className={estilos.messageErro}>{errors.responsavel.message}</p>
-                )}
-                <label>Responsável</label>
-                <input
-                    {...register('responsavel')}
-                    className={estilos.campo}
-                    placeholder="ex: Ayrton Senna"
-                    value={responsavel}
-                    onChange={e=> setResponsavel(e.target.value)}
-                />
-
-
-                {errors.unidade_medida && (
+                <div className={estilos.containerLinha}>
+                    <div className={estilos.containerCampo}>
+                    {errors.unidade_medida && (
                     <p className={estilos.messageErro}>{errors.unidade_medida.message}</p>
-                )}
-                <label>Unidade de Medida</label>
-                <select 
-                    {...register('unidade_medida')} 
-                    className={estilos.campo}
-                    value={unidade_medida}
-                    onChange={e=> setUnidade_medida(e.target.value)}
-                >
-                    <option value="">Selecione...</option>
-                    {UNIDADE_MEDIDA_CHOICES.map((tipo, i) => (
-                        <option key={i} value={tipo}>
-                            {tipo}
-                        </option>
-                    ))}
-                </select>
+                    )}
+                    <label>Unidade de Medida</label>
+                        <select 
+                            {...register('unidade_medida')} 
+                            className={estilos.campo}
+                            value={unidade_medida}
+                            onChange={e=> setUnidade_medida(e.target.value)}
+                        >
+                            <option value="">Selecione...</option>
+                            {UNIDADE_MEDIDA_CHOICES.map((tipo, i) => (
+                                <option key={i} value={tipo}>
+                                    {tipo}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
 
+                    <div className={estilos.containerCampo}>
+                        {errors.status_operacional && (
+                        <p className={estilos.messageErro}>{errors.status_operacional.message}</p>
+                        )}
+                        <label>Status Operacional</label>
+                            <input
+                                type="checkbox"
+                                {...register('status_operacional')}
+                                className={estilos.checkbox}
+                                value={status_operacional}
+                                onChange={e=> setStatus_operacional(e.target.value)}
+                            />
+                    </div>
+                </div>
 
-                {errors.status_operacional && (
-                    <p className={estilos.messageErro}>{errors.status_operacional.message}</p>
-                )}
-                <label>Status Operacional</label>
-                <input
-                    type="checkbox"
-                    {...register('status_operacional')}
-                    className={estilos.checkbox}
-                    value={status_operacional}
-                    onChange={e=> setStatus_operacional(e.target.value)}
-                />
 
                 {errors.observacao &&(
                     <p className={estilos.messageErro}>{errors.observacao.message}</p>
@@ -205,11 +230,12 @@ export function CadastroSensores() {
                     value={observacao}
                     onChange={e=> setObservacao(e.target.value)}
                 />
-
-
-                <button className={estilos.botao} type="submit">
-                    Enviar
-                </button>
+                <div className={estilos.containerButton}>
+                    <button className={estilos.botao} type="submit">
+                        Enviar
+                    </button>
+                </div>
+                
             </form>
         </div>
     );

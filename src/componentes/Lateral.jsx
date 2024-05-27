@@ -1,5 +1,6 @@
 import estilos from './Lateral.module.css'
-
+import { Link } from 'react-router-dom' 
+import { Broadcast, Users, FediverseLogo} from '@phosphor-icons/react'
 export function Lateral(){
     return(
         <aside className={estilos.container}>
@@ -21,24 +22,31 @@ export function Lateral(){
         </header>
 
         <section>
-                <p 
-                    className={estilos.botao}
 
-                >
-                    Perfil 
-                </p>
-
-                <p 
+                <Link 
                     className={estilos.botao}
+                    to='/inicial'
                 >
                     Sensores
-                </p>
+                    <FediverseLogo size={20} />
+                </Link>
 
-                <p 
+                <Link 
                     className={estilos.botao}
+                    to='cadastroSensores'
                 >
-                    + Sensores
-                </p>
+                   Adicionar
+                   <Broadcast size={20} />
+                </Link>
+
+                <Link
+                    className={estilos.botao}
+                    to='cadastroUsers'
+
+                >
+                    Cadastre <Users size={22} />
+                </Link>
+
             </section>
 
         </aside>

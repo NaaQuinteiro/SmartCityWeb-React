@@ -4,6 +4,8 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import axios from 'axios'
+
 
 const schemaLogin = z.object({
 
@@ -28,16 +30,31 @@ export function Login(){
 
     const[username, setUsername] = useState('')
     const[password, setPassword] = useState('')
+    const navigate = useNavigate()
 
-    function obterDadosFormulario(){
-        
+    async function obterDadosFormulario(data){
+        try{
+            const resonse = await axios.post('http://127.0.0.1:8000/api/token', {
+                username: data.usuario,
+                password: data.senha
+            });
+            const {access, refresh} = response.data;
+            localStorage.setItem('access_token', access);
+            localStorage.setItem('refresh_token', refresh);
+
+            console.log("Login bem Sucedido");
+            navigate('inicial')   
+        }catch(errors){
+            console.log("Erro na autenticação ", errors);
+        }
+     
     }
 
     return(
         <div className={estilos.body}>
             <div className={estilos.container}>
 
-                <form action=""
+                <form 
                     className={estilos.formulario}
                     onSubmit={handleSubmit(obterDadosFormulario)}
                 >
