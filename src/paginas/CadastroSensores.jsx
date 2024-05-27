@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import estilos from './CadastroSensores.module.css';
+import { useState } from 'react';
 
 const TIPO_SENSOR_CHOICES = ['Temperatura', 'Contador', 'Luminosidade', 'Umidade'];
 const UNIDADE_MEDIDA_CHOICES = ['°C', 'qtd', 'cd', '%'];
@@ -54,6 +55,17 @@ export function CadastroSensores() {
         resolver: zodResolver(schemaCadastroSensores),
     });
 
+    const [tipo, setTipo] = useState('')
+    const [mac_address, setMac_address] = useState('')
+    const [latitude, setLatitude] = useState('')
+    const [longitude, setLongitude] = useState('')
+    const [localizacao, setLocalizacao] = useState('')
+    const [responsavel, setResponsavel] = useState('')
+    const [unidade_medida, setUnidade_medida] = useState('')
+    const [status_operacional, setStatus_operacional] = useState('')
+    const [observacao, setObservacao] = useState('')
+    
+
     function obterDadosFormulario(data) {
         console.log(data);
     }
@@ -72,7 +84,12 @@ export function CadastroSensores() {
                     <p className={estilos.messageErro}>{errors.tipo.message}</p>
                 )}
                 <label>Tipo</label>
-                <select {...register('tipo')} className={estilos.campo}>
+                <select 
+                    {...register('tipo')} 
+                    className={estilos.campo}
+                    value={tipo}
+                    onChange={e => setTipo(e.target.value)}
+                >
                     <option value="">Selecione...</option>
                     {TIPO_SENSOR_CHOICES.map((tipo, i) => (
                         <option key={i} value={tipo}>
@@ -90,6 +107,8 @@ export function CadastroSensores() {
                     {...register('mac_address')}
                     className={estilos.campo}
                     placeholder="ex: 00:1B:44:11:3A:B7"
+                    value={mac_address}
+                    onChange={e => setMac_address(e.target.value)}
                 />
 
 
@@ -101,6 +120,8 @@ export function CadastroSensores() {
                     {...register('latitude')}
                     className={estilos.campo}
                     placeholder="ex: 45.123456"
+                    value={latitude}
+                    onChange={e => setLatitude(e.target.value)}
                 />
                 
 
@@ -112,6 +133,8 @@ export function CadastroSensores() {
                     {...register('longitude')}
                     className={estilos.campo}
                     placeholder="ex: -123.456789"
+                    value={longitude}
+                    onChange={e=> setLongitude(e.target.value)}
                 />
 
 
@@ -123,6 +146,8 @@ export function CadastroSensores() {
                     {...register('localizacao')}
                     className={estilos.campo}
                     placeholder="ex: Entrada Refeitório"
+                    value={localizacao}
+                    onChange={e=> setLocalizacao(e.target.value)}
                 />
 
                 {errors.responsavel && (
@@ -133,6 +158,8 @@ export function CadastroSensores() {
                     {...register('responsavel')}
                     className={estilos.campo}
                     placeholder="ex: Ayrton Senna"
+                    value={responsavel}
+                    onChange={e=> setResponsavel(e.target.value)}
                 />
 
 
@@ -140,7 +167,12 @@ export function CadastroSensores() {
                     <p className={estilos.messageErro}>{errors.unidade_medida.message}</p>
                 )}
                 <label>Unidade de Medida</label>
-                <select {...register('unidade_medida')} className={estilos.campo}>
+                <select 
+                    {...register('unidade_medida')} 
+                    className={estilos.campo}
+                    value={unidade_medida}
+                    onChange={e=> setUnidade_medida(e.target.value)}
+                >
                     <option value="">Selecione...</option>
                     {UNIDADE_MEDIDA_CHOICES.map((tipo, i) => (
                         <option key={i} value={tipo}>
@@ -158,6 +190,8 @@ export function CadastroSensores() {
                     type="checkbox"
                     {...register('status_operacional')}
                     className={estilos.checkbox}
+                    value={status_operacional}
+                    onChange={e=> setStatus_operacional(e.target.value)}
                 />
 
                 {errors.observacao &&(
@@ -168,6 +202,8 @@ export function CadastroSensores() {
                     {...register('observacao')}
                     className={estilos.campo}
                     placeholder="Insira sua observação..."
+                    value={observacao}
+                    onChange={e=> setObservacao(e.target.value)}
                 />
 
 

@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.container img{
+    width: 100%;
+    border-radius: 8px;
+}
+
+.container figcaption{
+    padding: 12px 0;
+    text-align: 'center';
+    font-size: 1.25rem;
+
+
+}
+
+.container p{
+    padding: 6px 0;
+    text-align: justify;
+
+}
