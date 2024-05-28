@@ -1,24 +1,63 @@
+
 .container{
     display: flex;
+    
     flex-direction: column;
+    align-items: center;
     color: white;
 }
 
-.container img{
-    width: 100%;
-    border-radius: 8px;
+.identificador{
+    font-size: 18px;
+    font-weight: 300;
 }
 
-.container figcaption{
-    padding: 12px 0;
-    text-align: 'center';
-    font-size: 1.25rem;
+.icone{
+    width: 70px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100% ;
+    background: linear-gradient(90deg, rgb(67, 97, 238) 9%, rgb(62, 221, 195) 100%);
+}
 
+.containerInfo{
+    width: 95%;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    border-radius: 10px;
+}
+
+.campo{
+    padding: 6px;
+    text-align: left;
+    font-size: 15px;
 
 }
 
-.container p{
-    padding: 6px 0;
-    text-align: justify;
+.botao { 
+    display: flex;
+    background-color: var(--azul);
+    width: 95%;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    font-size: 15px;font-family: 'Poppins', sans-serif;
+    color: var(--cinza-claro);
+    align-items: center;
+    justify-content: center;
+}
 
+
+
+.botao:hover { 
+    background: linear-gradient(90deg, rgb(107, 23, 175) 9%, rgb(62, 86, 221) 100%);
 }

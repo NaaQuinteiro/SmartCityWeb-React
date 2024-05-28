@@ -34,7 +34,7 @@ export function Login(){
 
     async function obterDadosFormulario(data){
         try{
-            const resonse = await axios.post('http://127.0.0.1:8000/api/token', {
+            const resonse = await axios.post('http://127.0.0.1:8000/api/token/', {
                 username: data.usuario,
                 password: data.senha
             });
