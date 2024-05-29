@@ -91,9 +91,9 @@ export function CadastroSensores() {
                             value={tipo}
                             onChange={e => setTipo(e.target.value)}
                         >
-                            <option value="">Selecione...</option>
+                            <option value="" className={estilos.option}>Selecione...</option>
                             {TIPO_SENSOR_CHOICES.map((tipo, i) => (
-                                <option key={i} value={tipo}>
+                                <option key={i} value={tipo} className={estilos.option}>
                                     {tipo}
                                 </option>
                             ))}
@@ -194,9 +194,9 @@ export function CadastroSensores() {
                             value={unidade_medida}
                             onChange={e=> setUnidade_medida(e.target.value)}
                         >
-                            <option value="">Selecione...</option>
+                            <option value="" className={estilos.option}>Selecione...</option>
                             {UNIDADE_MEDIDA_CHOICES.map((tipo, i) => (
-                                <option key={i} value={tipo}>
+                                <option key={i} value={tipo} className={estilos.option}>
                                     {tipo}
                                 </option>
                             ))}

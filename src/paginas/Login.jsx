@@ -9,11 +9,11 @@ import axios from 'axios'
 
 const schemaLogin = z.object({
 
-    username: z.string()
+    usuario: z.string()
                 .min(5, 'Por favor, insira pelo menos 5 caracteres')
                 .max(100, "Por favor, insira até 100 caracteres"),
 
-    password: z.string()
+    senha: z.string()
                 .min(6, 'Por favor, insira pelo menos 6 caracteres')
                 .max(10, "Por favor, insira até 10 caracteres")
 })
@@ -34,7 +34,7 @@ export function Login(){
 
     async function obterDadosFormulario(data){
         try{
-            const resonse = await axios.post('http://127.0.0.1:8000/api/token/', {
+            const response = await axios.post('http://127.0.0.1:8000/api/token/', {
                 username: data.usuario,
                 password: data.senha
             });
@@ -64,7 +64,7 @@ export function Login(){
                     <label htmlFor="" className={estilos.label}
                     >Username</label>
                     <input
-                        {...register('username')}
+                        {...register('usuario')}
                         className={estilos.input}
                         placeholder=''
                         value={username}
@@ -77,7 +77,7 @@ export function Login(){
                     <label htmlFor="" className={estilos.label} 
                     >Password</label>
                     <input
-                        {...register('password')}
+                        {...register('senha')}
                         className={estilos.input}
                         placeholder=''
                         value={password}
@@ -90,8 +90,6 @@ export function Login(){
                     <button className={estilos.botao}>
                         Sign in
                     </button>
-
-                    <a href="" className={estilos.link}>Register in here!</a>
 
                 </form>
 
