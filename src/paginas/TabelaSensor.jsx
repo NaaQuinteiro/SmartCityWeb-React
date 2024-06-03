@@ -33,6 +33,22 @@ export function TabelaSensor(){
                     <td>-22,9141396</td>
                     <td>-47,0681575</td>
                 </tr>
+                <tr>
+                    <td>Temperatura</td>
+                    <td>°C</td>
+                    <td>A111-Laboratório de Eletrônica</td>
+                    <td>Maria</td>
+                    <td>-22,9141396</td>
+                    <td>-47,0681575</td>
+                </tr>
+                <tr>
+                    <td>Temperatura</td>
+                    <td>°C</td>
+                    <td>A111-Laboratório de Eletrônica</td>
+                    <td>Maria</td>
+                    <td>-22,9141396</td>
+                    <td>-47,0681575</td>
+                </tr>
                 </tbody>
             </table>
         </div>

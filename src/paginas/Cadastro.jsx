@@ -3,7 +3,8 @@ import estilos from './Cadastro.module.css'
 import {z} from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form';
-
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const schemaCadastro = z.object({
 
@@ -21,7 +22,7 @@ const schemaCadastro = z.object({
 });
 
 export function Cadastro(){
-
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -31,12 +32,23 @@ export function Cadastro(){
     })
 
     const[email, setEmail] = useState('')
-    const[username, setUsername] = useState('')
+    const[username, setUsername] = useState('') 
     const[password, setPassword] = useState('')
     
 
-    function obterDadosFormulario(data){
-        console.log(data);        
+    async function obterDadosFormulario(data) {
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/create_user/', data, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+                }
+            });
+
+            alert('Sensor cadastrado com sucesso!');
+            navigate('/inicial/cadastroUsers'); // Redireciona para a página inicial após o cadastro
+        } catch (error) {
+            console.error('Erro no cadastro de sensor', error);
+        }
     }
 
 

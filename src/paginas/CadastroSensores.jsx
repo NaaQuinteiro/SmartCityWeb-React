@@ -3,6 +3,8 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import estilos from './CadastroSensores.module.css';
 import { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const TIPO_SENSOR_CHOICES = ['Temperatura', 'Contador', 'Luminosidade', 'Umidade'];
 const UNIDADE_MEDIDA_CHOICES = ['°C', 'qtd', 'cd', '%'];
@@ -19,12 +21,10 @@ const schemaCadastroSensores = z.object({
         .optional(),
 
     latitude: z.string()
-        .max(9, 'Latitude deve ter no máximo 9 caracteres')
-        .min(1, 'Latitude deve ter no mínimo 1 caracter'),
+        .refine(val => !isNaN(parseFloat(val)), 'Latitude inválida'),
 
     longitude: z.string()
-        .max(11, 'Longitude deve ter no máximo 11 caracteres')
-        .min(1, 'Longitude deve ter no mínimo 1 caracter'),
+        .refine(val => !isNaN(parseFloat(val)), 'Longitude inválida'),
 
     localizacao: z.string()
         .max(100, 'Máximo de 100 caracteres')
@@ -46,6 +46,7 @@ const schemaCadastroSensores = z.object({
 });
 
 export function CadastroSensores() {
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -66,7 +67,19 @@ export function CadastroSensores() {
     const [observacao, setObservacao] = useState('')
     
 
-    function obterDadosFormulario(data) {
+    async function obterDadosFormulario(data) {
+        try{
+            const response = await axios.post('http://127.0.0.1:8000/api/sensores/', data, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+                }
+            });
+
+            alert('Sensor cadastrado com sucesso!');
+            navigate('/inicial'); // Redireciona para a página inicial após o cadastro
+        } catch (error) {
+            console.error('Erro no cadastro de sensor', error);
+        }
         console.log(data);
     }
 

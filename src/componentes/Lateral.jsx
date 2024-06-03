@@ -1,6 +1,6 @@
 import estilos from './Lateral.module.css'
 import { Link } from 'react-router-dom' 
-import { Broadcast, Users, FediverseLogo} from '@phosphor-icons/react'
+import { Broadcast, Users, FediverseLogo, MapTrifold} from '@phosphor-icons/react'
 export function Lateral(){
     return(
         <aside className={estilos.container}>
@@ -45,6 +45,14 @@ export function Lateral(){
 
                 >
                     Cadastre <Users size={22} />
+                </Link>
+
+                <Link
+                    className={estilos.botao}
+                    to='localizacao'
+
+                >
+                    Mapa <MapTrifold size={22} />
                 </Link>
 
             </section>

@@ -26,7 +26,7 @@ export function Sensores({propsSensor}){
                 <Link 
                     className={estilos.botao}
                     to='infoSensor'>
-                        Alterar
+                        Visualizar
                 </Link>
                 
                 
