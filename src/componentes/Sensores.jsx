@@ -25,8 +25,8 @@ export function Sensores({propsSensor}){
         
                 <Link 
                     className={estilos.botao}
-                    to='infoSensor'>
-                        Visualizar
+                    to={`alterarSensor/${propsSensor.id}`}>
+                        Alterar
                 </Link>
                 
                 

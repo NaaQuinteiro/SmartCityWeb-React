@@ -59,7 +59,7 @@ export function Cadastro(){
                     className={estilos.formulario}
                     onSubmit={handleSubmit(obterDadosFormulario)}
                 >
-                    <h1 className={estilos.titulo}>Register</h1>
+                    <h1 className={estilos.titulo}>Cadastre</h1>
 
                     <label className={estilos.label}>
                         Email
