@@ -62,16 +62,6 @@
     margin-top: 15px;
 }
 
-.link{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    font-size: 14px;
-    text-decoration: none;
-    color: var(--azul);
-}
-
 .messageErro{
     display: flex;
     justify-content: center;

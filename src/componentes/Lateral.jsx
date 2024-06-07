@@ -17,7 +17,7 @@ export function Lateral(){
                  alt="imagem avatar" 
             />
 
-            <p>Nome do Usuário</p>
+            <p> Welcome to Smart</p>
         </div>
         </header>
 

@@ -10,12 +10,9 @@ import { DiceFive } from '@phosphor-icons/react';
 //Schema de validação do formulário para checagem dos valores que foram colocados no form
 const schemaAlterarSensor = z.object({
     mac_address: z.string().max(20, 'Máximo de 20 caracteres').nullable(),
-    latitude: z.number()
-        .refine(val => !isNaN(parseFloat(val)), 'Latitude inválida'),
+    latitude: z.string().refine(val => !isNaN(parseFloat(val)), 'Latitude inválida'),
+    longitude: z.string().refine(val => !isNaN(parseFloat(val)), 'Longitude inválida'),
 
-    longitude: z.number()
-        .refine(val => !isNaN(parseFloat(val)), 'Longitude inválida'),
-        
     localizacao: z.string().max(100, 'Máximo de 100 caracteres'),
     responsavel: z.string().max(100, 'Máximo de 100 caracteres'),
     unidade_medida: z.string().max(20, 'Máximo de 20 caracteres').nullable(),
@@ -54,6 +51,9 @@ export function AlterarSensor() {
 
     //pego os dados colocados no formulário e passo para o PUT!!o data aqui é o conj de info do form
     const onSubmit = async (data) => {
+        // Convertendo latitude e longitude para números
+        data.latitude = parseFloat(data.latitude);
+        data.longitude = parseFloat(data.longitude);
 
         console.log("Dados enviados para o PUT:", data);
         try {
@@ -73,50 +73,84 @@ export function AlterarSensor() {
 
     return (
         <div className={estilos.body}>
-        <div className={estilos.conteiner}>
+        <div className={estilos.container}>
             <form className={estilos.formulario} onSubmit={handleSubmit(onSubmit)}>
-                <label>Tipo</label>
-                <select {...register('tipo')} className={estilos.campo}>
-                    <option value="">Selecione o tipo de sensor</option>
-                    <option value="Temperatura">Temperatura</option>
-                    <option value="Contador">Contador</option>
-                    <option value="Luminosidade">Luminosidade</option>
-                    <option value="Umidade">Umidade</option>
-                </select>
-                {errors.tipo && <p className={estilos.mensagem}>{errors.tipo.message}</p>}
 
-                <label>Mac Address</label>
-                <input {...register('mac_address')} className={estilos.campo} />
-                {errors.mac_address && <p className={estilos.mensagem}>{errors.mac_address.message}</p>}
+                <h1 className={estilos.titulos}>Altere os dados do sensor</h1>
 
-                <label>Latitude</label>
-                <input {...register('latitude')} className={estilos.campo} />
-                {errors.latitude && <p className={estilos.mensagem}>{errors.latitude.message}</p>}
+                <div className={estilos.containerLinha}>
 
-                <label>Longitude</label>
-                <input {...register('longitude')} className={estilos.campo} />
-                {errors.longitude && <p className={estilos.mensagem}>{errors.longitude.message}</p>}
+                    <div className={estilos.containerCampo}>
+                        <label>Tipo</label>
+                        <select {...register('tipo')} className={estilos.campo}>
+                            <option value="" className={estilos.option}>Selecione o tipo de sensor</option>
+                            <option value="Temperatura" className={estilos.option}>Temperatura</option>
+                            <option value="Contador" className={estilos.option}>Contador</option>
+                            <option value="Luminosidade" className={estilos.option}>Luminosidade</option>
+                            <option value="Umidade" className={estilos.option}>Umidade</option>
+                        </select>
+                        {errors.tipo && <p className={estilos.mensagem}>{errors.tipo.message}</p>}
+                    </div>
 
-                <label>Localização</label>
-                <input {...register('localizacao')} className={estilos.campo} />
-                {errors.localizacao && <p className={estilos.mensagem}>{errors.localizacao.message}</p>}
+                    <div className={estilos.containerCampo}>
+                        <label>Mac Address</label>
+                        <input {...register('mac_address')} className={estilos.campo} />
+                        {errors.mac_address && <p className={estilos.mensagem}>{errors.mac_address.message}</p>}
+                    </div>
+                </div>
 
-                <label>Responsável</label>
-                <input {...register('responsavel')} className={estilos.campo} />
-                {errors.responsavel && <p className={estilos.mensagem}>{errors.responsavel.message}</p>}
 
-                <label>Unidade Medida</label>
-                <input {...register('unidade_medida')} className={estilos.campo} />
-                {errors.unidade_medida && <p className={estilos.mensagem}>{errors.unidade_medida.message}</p>}
+                <div className={estilos.containerLinha}>
+                    <div className={estilos.containerCampo}>
+                        <label>Latitude</label>
+                        <input {...register('latitude')} className={estilos.campo} />
+                        {errors.latitude && <p className={estilos.mensagem}>{errors.latitude.message}</p>}
+                    </div>
 
-                <label>Status Operacional</label>
-                <input {...register('status_operacional')} type="checkbox" />
-                
+                    <div className={estilos.containerCampo}>
+                        <label>Longitude</label>
+                        <input {...register('longitude')} className={estilos.campo} />
+                        {errors.longitude && <p className={estilos.mensagem}>{errors.longitude.message}</p>}
+                    </div>
+                </div>
+
+                <div className={estilos.containerLinha}>
+
+                    <div className={estilos.containerCampo}>
+                        <label>Localização</label>
+                        <input {...register('localizacao')} className={estilos.campo} />
+                        {errors.localizacao && <p className={estilos.mensagem}>{errors.localizacao.message}</p>}
+                    </div>
+
+                    <div className={estilos.containerCampo}>
+                        <label>Responsável</label>
+                        <input {...register('responsavel')} className={estilos.campo} />
+                        {errors.responsavel && <p className={estilos.mensagem}>{errors.responsavel.message}</p>}
+                    </div>
+                </div>
+
+                <div className={estilos.containerLinha}>
+
+                    <div className={estilos.containerCampo}>
+                        <label>Unidade Medida</label>
+                        <input {...register('unidade_medida')} className={estilos.campo} />
+                        {errors.unidade_medida && <p className={estilos.mensagem}>{errors.unidade_medida.message}</p>}
+                    </div>
+
+                    <div className={estilos.containerCampo}>
+                        <label>Status Operacional</label>
+                        <input {...register('status_operacional')} type="checkbox" className={estilos.campoCheckBox}/>
+                    </div>
+                </div>
+
                 <label>Observação</label>
                 <textarea {...register('observacao')} className={estilos.campo}></textarea>
                 {errors.observacao && <p className={estilos.mensagem}>{errors.observacao.message}</p>}
 
-                <button type="submit" className={estilos.botao}>Salvar Alterações</button>
+                <div className={estilos.containerButton}>
+                    <button type="submit" className={estilos.botao}>Salvar Alterações</button>
+                </div>
+                
             </form>
         </div>
         </div>

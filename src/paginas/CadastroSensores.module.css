@@ -4,7 +4,7 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-image: url('/src/assets/img/fundo_cadastroDispo.svg');
+    background-image: url('/src/assets/img/cadastro.svg');
     background-size: cover; /* Ajusta a imagem para cobrir toda a área */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Evita que a imagem se repita */
@@ -13,7 +13,7 @@
 .formulario {
     display: flex;
     flex-direction: column;
-    background-color: var(--cinza-azulado);
+    background-color: var(--cinza-claro);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -44,19 +44,19 @@
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    border: 1px solid var(--cinza-claro);
+    border: 1px solid var(--cinza-azulado);
     border-radius: 6px;
     background-color: var(--cinza-claro);
     transition: border-color 0.3s, background-color 0.3s;
 }
 
 .campo:focus {
-    border-color: var(--roxo-escuro);
-    background-color: var(--branco);
+    border-color: var(--azul);
+    background-color: white;
 }
 
 .option {
-    color: var(--roxo);
+    color: var(--azul);
     background-color: var(--cinza-claro);
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
@@ -109,6 +109,5 @@
 
 label {
     font-size: 1rem;
-    color: var(--roxo);
     margin-bottom: 5px;
 }

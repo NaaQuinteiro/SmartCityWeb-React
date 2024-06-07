@@ -109,8 +109,6 @@ export function Cadastro(){
                         Sign in 
                     </button>
 
-                    <a href="" className={estilos.link}>Back to login.</a>
-
                 </form>
             </div> 
         </div>

@@ -20,11 +20,8 @@ const schemaCadastroSensores = z.object({
         .nullable()
         .optional(),
 
-    latitude: z.string()
-        .refine(val => !isNaN(parseFloat(val)), 'Latitude inválida'),
-
-    longitude: z.string()
-        .refine(val => !isNaN(parseFloat(val)), 'Longitude inválida'),
+    latitude: z.string().refine(val => !isNaN(parseFloat(val)), 'Latitude inválida'),
+    longitude: z.string().refine(val => !isNaN(parseFloat(val)), 'Longitude inválida'),
 
     localizacao: z.string()
         .max(100, 'Máximo de 100 caracteres')
